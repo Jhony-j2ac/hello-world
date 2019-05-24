@@ -1,1 +1,1 @@
-este mensaje usa ajax nuevosss
+este mensaje usa ajax nuevos y con ajax
