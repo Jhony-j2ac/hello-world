@@ -1,1 +1,0 @@
-este mensaje usa ajax nuevos y con ajax
