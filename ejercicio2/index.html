@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ajax 2 json</title>
+</head>
+<body>
+	<button id="traer">traer json</button>
+	<div id="main"></div>
+
+<script type="text/javascript">
+	document.getElementById("traer").addEventListener("click", function(){
+		var jsondata;
+
+		if(window.XMLHttpRequest){
+			jsondata = new XMLHttpRequest();
+		}else{
+			jsondata = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+
+		 jsondata.onreadystatechange = function(){
+			if (jsondata.readyState === 4 && jsondata.status === 200) {
+				var dada = JSON.parse(jsondata.responseText);
+				for( var i in dada){
+					document.getElementById("main").innerHTML += i  + "     " +dada[i];
+				}
+			}
+		}
+
+		jsondata.open("GET","https://spreadsheets.google.com/feeds/list/1pXkPhtQnOSc-HL1hUJTzEHHl7HzGVv2ePTswadBjhb0/7/public/values?alt=json",true);
+		jsondata.send();
+	});
+</script>
+</body>
+</html>
